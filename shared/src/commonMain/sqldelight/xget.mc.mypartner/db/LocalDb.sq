@@ -1,0 +1,21 @@
+CREATE TABLE Message (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    author TEXT NOT NULL,
+    message TEXT NOT NULL,
+    date TEXT NOT NULL
+);
+
+getMessagesList:
+SELECT *
+FROM Message ORDER BY date DESC;
+
+
+insertMessage:
+INSERT OR REPLACE
+INTO Message
+VALUES (?,?,?,?);
+
+deleteLoadingMessage:
+DELETE FROM Message
+WHERE message = :message;
+
